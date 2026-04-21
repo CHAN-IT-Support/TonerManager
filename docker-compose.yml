@@ -1,0 +1,19 @@
+services:
+  tonermanager:
+    build:
+      context: .
+      args:
+        VITE_API_BASE_URL: ${VITE_API_BASE_URL:-}
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: 3000
+      AAD_TENANT_ID: ${AAD_TENANT_ID}
+      AAD_CLIENT_ID: ${AAD_CLIENT_ID}
+      AAD_CLIENT_SECRET: ${AAD_CLIENT_SECRET}
+      AAD_REDIRECT_URI: ${AAD_REDIRECT_URI}
+      LOCAL_AUTH_ENABLED: ${LOCAL_AUTH_ENABLED}
+      SEED_DIR: /seed
+    volumes:
+      - ./data:/app/data
+      - ../oldData:/seed:ro

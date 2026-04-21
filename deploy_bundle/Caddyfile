@@ -1,0 +1,8 @@
+{
+  email {$EMAIL}
+  auto_https {$ENABLE_HTTPS}
+}
+
+{$DOMAIN} {
+  reverse_proxy app:3000
+}
